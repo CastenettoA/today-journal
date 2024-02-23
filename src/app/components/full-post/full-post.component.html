@@ -1,10 +1,10 @@
 <div *ngIf="post">
-    <div class="post">
-      <div class="post-box">
-        <h2>{{post.title}}</h2>
-        <p>pubblicato da: {{ getName() + ' alias ' }} <span class="user-link">{{ getUsername() }}</span></p>
-        <p>{{post.body}}</p>
-        <p-button label="Chiudi" severity="danger" (click)="post=null"></p-button>
-      </div>
+      <div class="post">
+        <div class="post-box">
+          <h2>{{post.title}}</h2>
+          <p class="small-text">pubblicato da: {{ getName() + ' alias ' }} <span class="user-link" [routerLink]="'user/' + post.userId">{{ getUsername() }}</span></p>
+          <p>{{post.body}}</p>
+          <p-button label="Chiudi" severity="danger" (click)="post=null"></p-button>
+        </div>
     </div>
   </div>

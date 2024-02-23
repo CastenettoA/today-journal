@@ -1,1 +1,16 @@
-<p>user works!</p>
+<div *ngIf="user">
+    <div class="post animation-duration-1000" pAnimateOnScroll enterClass="fadein" leaveClass="fadeout">
+      <div class="post-box">
+        <h2>{{user.name}}</h2>
+        <img class="usr-img" src="https://i.ibb.co/Wgmchy1/download.jpg">
+        <ul>
+            <li>id: {{user.id}}</li>
+            <li>username: {{user.username}}</li>
+            <li>email: {{user.email}}</li>
+            <li>street address, zip & geo: {{user.address.street}}, {{user.address.zipcode}}, ({{user.address.geo.lat}}, {{user.address.geo.lng}}) </li>
+            <li>phone: {{user.phone}}</li>
+            <li>website: {{user.website}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>

@@ -2,7 +2,9 @@
 Today Journal è una semplice applicazione scritta in Angular che mostra un elenco di articoli.
 
 ## Funzionalità principali
+ - utilizzo di Modelli, Componenti, Servizi (post, user service), Rotte ed altre funzionalità Angular
  - Design responsivo (telefono, tablet, pc)
+ - Utilizzo libreria grafica PrimaNG e animazioni
  - Elenco riassunto post sulla rotta: "/"
  - Dettaglio post: visualizzato cliccando le iniziali di un nome utente, presenti a sinistra in ogni post. Al click sul bottone chiudi viene chiuso il dettaglio post.
  - Dettaglio utente: visualizzato cliccando sul nome utente. Rotta: "/user/:id".

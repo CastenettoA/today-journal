@@ -15,6 +15,7 @@ export class HomeComponent {
     this.loadPosts();
   }
 
+  // get all posts from backend
   private loadPosts() {
     this.postService.getPosts().subscribe((res) => this.posts = res );
   }

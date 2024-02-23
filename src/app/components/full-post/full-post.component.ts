@@ -1,7 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
-import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,15 +11,11 @@ import { UserService } from '../../services/user.service';
 export class FullPostComponent {
   @Input() postId:number|null = null;
   post: Post | null = null;
-  users:User[] = [];
 
   constructor(private postService: PostService,
-    private userService: UserService) {
-    this.userService.getUsers().subscribe((res) => {
-      this.users = res;
-    });
-  }
+    private userService: UserService) {  }
 
+  // listen to selected post id changes
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['postId'] && !changes['postId'].firstChange) {
       // Check if postId changed and it's not the first change
@@ -28,21 +23,17 @@ export class FullPostComponent {
     }
   }
 
+  /** load the selected post and scroll to top */
   private loadPost(): void {
     if (this.postId !== null) {
-      // Call the PostService to get the post based on postId
-      this.postService.getPost(this.postId).subscribe(
-        (post:any) => {
-          this.post = post;
-          this.scrollToTop();
-        },
-        (error) => {
-          console.error('Error loading post:', error);
-        }
-      );
+      this.postService.getPost(this.postId).subscribe((post:any)=> {
+        this.post = post;
+        this.scrollToTop();
+      });
     }
   }
 
+  /** scroll user to top of page  */
   private scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -52,7 +43,7 @@ export class FullPostComponent {
     if(!this.post) return '';
 
     let index = this.post.userId - 1;
-    return this.users[index].username;
+    return this.userService.users[index].username;
   }
 
   /** return the user full name */
@@ -60,6 +51,6 @@ export class FullPostComponent {
     if(!this.post) return '';
 
     let index = this.post.userId - 1;
-    return this.users[index].name;
+    return this.userService.users[index].name;
   }
 }

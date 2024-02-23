@@ -14,6 +14,7 @@ import { PostComponent } from './components/post/post.component';
 import { ButtonModule } from 'primeng/button';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +22,15 @@ import { HomeComponent } from './components/home/home.component';
     HeaderComponent,
     FullPostComponent,
     PostComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CardModule, // move to module
+    CardModule, // move to PrimeNg module in the future
     ChipModule,
     ButtonModule,
     AnimateOnScrollModule
