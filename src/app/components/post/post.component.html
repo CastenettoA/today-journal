@@ -1,0 +1,7 @@
+<div class="post animation-duration-1000" *ngIf="post" pAnimateOnScroll enterClass="fadein" leaveClass="fadeout"> 
+    <div class="user-box" (click)="postId_event.emit(post.id)"><span>{{ getUserInitials(post.userId) }}</span></div>
+    <div class="post-box">
+      <h2>{{post.title}}</h2>
+      <p>pubblicato da: <span class="user-link" [routerLink]="'user/' + post.userId">{{ getUsername(post.userId) }}</span></p>
+    </div>
+</div>

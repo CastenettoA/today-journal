@@ -1,0 +1,77 @@
+:host {
+    width: 32.3%;
+
+    @media screen and (max-width: 1150px) {
+        width: 42%;
+    }
+
+    
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
+}
+
+.post {
+    display: inline-flex; 
+    justify-content: left;
+    align-items: center;   
+    
+    margin-bottom: 1rem;
+    padding: 1rem;
+    
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: .7rem;
+
+    width: 100%;
+    min-height: 270px;
+
+    h2 {
+        &::first-letter {
+            // because the h2 is returnet lowercase from the server
+            text-transform: uppercase;
+        }
+    }
+
+    .user-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-right: 2rem;
+        width: 80px;
+        height: 100%;
+        cursor: pointer;
+
+        border: 1px solid #bbb;
+        background-color: #ccc;
+        border-radius: .7rem;
+        transition: all .4s;
+
+        &:hover {
+            background-color: #999;
+            border: 1px solid #888;
+
+            span {
+                color: #333;
+            }
+        }
+
+        span {
+            color: #777;
+            display: inline-block;
+            font-weight: 900;
+            font-size: 1.7rem;
+        }
+    }
+
+    .post-box {
+        display: inline-block;
+        width: 100%;
+
+        .user-link {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}

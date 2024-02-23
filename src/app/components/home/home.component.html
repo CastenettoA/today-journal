@@ -1,0 +1,5 @@
+<app-full-post [postId]="postId"></app-full-post>
+
+<div class="posts-list">
+  <app-post *ngFor="let post of posts" [post]="post" (postId_event)="postId = $event"></app-post>
+</div>
